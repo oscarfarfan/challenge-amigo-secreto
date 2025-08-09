@@ -4,28 +4,31 @@ let listaAmigos = [];
 
 // Función para agregar un amigo
 function agregarAmigo() {
+    // Borrar mensaje de resultado si existe
+    document.getElementById("resultado").innerHTML = "";
+
     let input = document.getElementById("amigo");
     let nombre = input.value.trim();
 
-    // Validar si el campo está vacío
+    // Validar si está vacío
     if (nombre === "") {
         alert("Por favor, ingresa un nombre válido.");
         return;
     }
 
-    // Validar nombres duplicados
+    // Validar duplicados
     if (listaAmigos.includes(nombre)) {
         alert("Este nombre ya ha sido ingresado.");
         return;
     }
 
-    // Agregar a la lista un nuevo nombre
+    // Agregar a la lista
     listaAmigos.push(nombre);
 
     // Mostrar lista actualizada
     mostrarLista();
 
-    // Limpiar 
+    // Limpiar y enfocar input
     input.value = "";
     input.focus();
 }
